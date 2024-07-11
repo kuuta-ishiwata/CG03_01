@@ -46,6 +46,11 @@ public class PlayerScript : MonoBehaviour
             Animator.SetBool("mode", false);
         }
 
+        if(gameManagerScript.IsGameOver()==true)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+            return;
+        }
 
         Debug.Log(rb.velocity);
 
@@ -74,6 +79,11 @@ public class PlayerScript : MonoBehaviour
             {
                 bullettimer = 0;
             }
+        }
+
+        if(gameManagerScript.IsGameOver() == true)
+        {
+            return;
         }
 
     }
