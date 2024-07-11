@@ -8,11 +8,14 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody rb;
     public GameObject bullet;
     public Animator Animator;
+    public GameObject gameManager;
     int bullettimer = 0;
+    private GameManagerScript gameManagerScript;
     
     void Start()
     {
         Screen.SetResolution(1920, 1080, false);
+        gameManagerScript = gameManager.GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
@@ -43,7 +46,7 @@ public class PlayerScript : MonoBehaviour
             Animator.SetBool("mode", false);
         }
 
-       
+
         Debug.Log(rb.velocity);
 
     }
@@ -72,6 +75,14 @@ public class PlayerScript : MonoBehaviour
                 bullettimer = 0;
             }
         }
-        
+
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            gameManagerScript.GameOverStart();
+        }
     }
 }

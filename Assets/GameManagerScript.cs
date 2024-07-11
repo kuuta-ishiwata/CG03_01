@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManagerScript : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject gameOverText;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,4 +29,12 @@ public class GameManager : MonoBehaviour
             Instantiate(enemy, new Vector3(x, 2, 4), Quaternion.identity);
         }
     }
+
+    public void GameOverStart()
+    {
+        gameOverText.SetActive(true);
+        
+    }
+
+    
 }
