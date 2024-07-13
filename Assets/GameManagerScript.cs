@@ -31,6 +31,9 @@ public class GameManagerScript : MonoBehaviour
     {
         if (gameOverFlag == true)
         {
+            return;
+        }
+
         int r = Random.Range(0, 50);
         if(r == 0)
         {
@@ -38,8 +41,7 @@ public class GameManagerScript : MonoBehaviour
             Instantiate(enemy, new Vector3(x, 2, 4), Quaternion.identity);
 
         }
-            return;
-        }
+
     }
 
     public void GameOverStart()

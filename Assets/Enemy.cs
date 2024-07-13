@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
     {
         if (gameManagerScript.IsGameOver() == true)
         {
-
             return;
         }
         float movespeed = 2.0f;
