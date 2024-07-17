@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject gameOverText;
+    public AudioSource hitAudioSource;
     private bool gameOverFlag = false;
     // Start is called before the first frame update
     void Start()
