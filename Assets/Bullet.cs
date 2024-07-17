@@ -23,6 +23,14 @@ public class Bullet : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
+            //ゲームマネージャーのスクリプトを獲得
+            GameObject gameManager;//GameObjectそのものが入る変数
+            GameManagerScript gameManagerScript; //Scriptが入る変数
+            gameManager = GameObject.Find("GameManager");
+            gameManagerScript = gameManager.GetComponent<GameManagerScript>();
+            //ゲームマネージャースクリプトの小塗油判定を呼び出す
+            gameManagerScript.Hit();
+
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

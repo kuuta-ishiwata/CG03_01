@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
 
     private GameObject gameMabager;
     private GameManagerScript gameManagerScript;
-
+    public GameObject enemy;
+    private int gameTimer = 0;
     void Start()
     {
         Destroy(gameObject, 5);
@@ -19,11 +20,14 @@ public class Enemy : MonoBehaviour
         gameMabager = GameObject.Find("GameManager");
         //スクリプトを獲得
         gameManagerScript = gameMabager.GetComponent<GameManagerScript>();
-
+        gameTimer++;
+        int max = 50 - gameTimer / 100;
         //乱数で左右へ
-        int r = Random.Range(0, 2);
+        int r = Random.Range(0, max);
         if(r == 0)
         {
+            float x = Random.Range(-3.0f, 3.0f);
+            Instantiate(enemy, new Vector3(x, 0.0f, 15), Quaternion.identity);
             transform.rotation = Quaternion.Euler(0, 180 - 30, 0);
         }
         else

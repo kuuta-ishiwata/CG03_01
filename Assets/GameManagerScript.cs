@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject enemy;
     public GameObject gameOverText;
     public AudioSource hitAudioSource;
+    public TextMeshProUGUI scoreText;
     private bool gameOverFlag = false;
+    private int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,8 @@ public class GameManagerScript : MonoBehaviour
             {
                 SceneManager.LoadScene("TitleScene");
             }
-          
+
+        scoreText.text = "SCORE" + score;
     }
 
     private void FixedUpdate()
@@ -54,5 +57,13 @@ public class GameManagerScript : MonoBehaviour
     public bool IsGameOver()
     {
         return gameOverFlag;
+    }
+
+
+    //íeÇ∆ìGÇ™è’ìÀ
+    public void Hit()
+    {
+        hitAudioSource.Play();
+        score += 1;
     }
 }
