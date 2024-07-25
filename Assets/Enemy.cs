@@ -49,11 +49,11 @@ public class Enemy : MonoBehaviour
         transform.position += transform.rotation * velocity;
 
         //¶‰E‚Å”½“]
-        if (transform.position.x > 4)
+        if (transform.position.x > 3)
         {
             transform.rotation = Quaternion.Euler(0, 180 + 30, 0);
         }
-        if (transform.position.x < -4)
+        if (transform.position.x < -1)
         {
             transform.rotation = Quaternion.Euler(0, 180 - 30, 0);
         }

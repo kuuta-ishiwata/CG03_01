@@ -58,6 +58,10 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (gameManagerScript.IsGameOver() == true)
+        {
+            return;
+        }
         //’e”­ŽË
         if (bullettimer == 0)
         {
@@ -81,10 +85,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        if(gameManagerScript.IsGameOver() == true)
-        {
-            return;
-        }
+
 
     }
 

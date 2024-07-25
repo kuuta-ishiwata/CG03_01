@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
             gameManager = GameObject.Find("GameManager");
             gameManagerScript = gameManager.GetComponent<GameManagerScript>();
             //ゲームマネージャースクリプトの小塗油判定を呼び出す
-            gameManagerScript.Hit();
+            gameManagerScript.Hit(transform.position);
 
             Destroy(other.gameObject);
             Destroy(this.gameObject);

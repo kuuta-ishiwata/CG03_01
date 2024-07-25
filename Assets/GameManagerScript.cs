@@ -10,6 +10,7 @@ public class GameManagerScript : MonoBehaviour
     public GameObject gameOverText;
     public AudioSource hitAudioSource;
     public TextMeshProUGUI scoreText;
+    public GameObject bombParticle;
     private bool gameOverFlag = false;
     private int score = 0;
     // Start is called before the first frame update
@@ -61,9 +62,10 @@ public class GameManagerScript : MonoBehaviour
 
 
     //íeÇ∆ìGÇ™è’ìÀ
-    public void Hit()
+    public void Hit(Vector3 position)
     {
         hitAudioSource.Play();
         score += 1;
+        Instantiate(bombParticle,position, Quaternion.identity);
     }
 }
