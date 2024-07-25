@@ -8,6 +8,7 @@ public class FloorScript : MonoBehaviour
     ReflectionProbe probe;
     void Start()
     {
+
         this.probe = GetComponent<ReflectionProbe>();
     }
 
